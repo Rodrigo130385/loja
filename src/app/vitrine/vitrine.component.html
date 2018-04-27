@@ -1,0 +1,40 @@
+
+
+
+<div class="row">
+    <div *ngFor="let produto of produtos"  class="col-md-3" style="padding:20px 10px">
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title><h1>{{ produto['produto_nome'] }}</h1></mat-card-title>
+                <mat-card-subtitle><h2>{{ produto['produto_preco_2'] | currency:'BRL':true:'1.2-2' }}</h2></mat-card-subtitle>
+            </mat-card-header>
+            <br>
+            <div class="container div-img">
+                <a routerLink="/produto/{{ produto['produto_ID'] }}">
+                    <img mat-card-image 
+                        [defaultImage]="defaultImage" 
+                        [lazyLoad]="'https://www.iameiestampas.com.br/loja/client/LV_0005/imagens/' + produto['imagem_nome']" 
+                        [offset]="offset">
+                    <!--<img mat-card-image src="https://www.iameiestampas.com.br/loja/client/LV_0005/imagens/{{ produto['imagem_nome'] }}" alt="{{ produto['produto_nome'] }}">-->
+                </a>
+            </div>
+            <mat-card-content>
+                <div class="sobre-box"></div>
+                <div class="desc-panel">
+                    
+                        <p>{{ produto['produto_mkt'] }}</p>
+                   
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <div class="button-row">
+                    <a mat-raised-button class="btn-block" color="primary" routerLink="/produto/{{ produto['produto_ID'] }}" >mais detalhes<mat-icon>add</mat-icon></a>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+
+
+    </div>
+</div>

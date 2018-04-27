@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="nav-fixed" >
+
+  <button mat-button routerLink="/"><img class="iamei-ico" src="/assets/img/iamei-bc.png"></button>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/orcamento" routerLinkActive="btn-active"><mat-icon>receipt</mat-icon>Orçamento</button>
+    <button mat-button routerLink="/produtos" routerLinkActive="btn-active"><mat-icon>shopping basket</mat-icon>Produtos</button>
+    <button mat-button (click)="openDialog()"><mat-icon>search</mat-icon></button>
+    
+  </div>
+  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item routerLink="/orcamento" routerLinkActive="btn-active"><mat-icon>receipt</mat-icon>Orçamento</button>
+  <button mat-menu-item routerLink="/produtos" routerLinkActive="btn-active"><mat-icon>shopping basket</mat-icon>Produtos</button>
+  <button mat-menu-item (click)="openDialog()"><mat-icon>search</mat-icon>Buscar</button>
+  
+  
+  <!--<button mat-menu-item>Help</button>-->
+</mat-menu>
+<br>

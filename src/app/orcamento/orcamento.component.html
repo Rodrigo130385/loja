@@ -1,0 +1,55 @@
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-3">
+        <img class="img-orcamento" src="/assets/img/camisetas-personalizadas-familia.jpg">
+    </div>
+    <div class="col-md-6">
+
+      <form class="form-horizontal form-container" [formGroup]="formOrcamento" (ngSubmit)="submit()">
+
+          <mat-form-field>
+            <input matInput placeholder="nome" minlength="2" style="text-transform: uppercase;" formControlName="nome"
+              autocomplete="off">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput type="email" placeholder="email" minlength="3" style="text-transform: lowercase;" formControlName="email"
+                autocomplete="off">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput type="text" placeholder="numero de telefone" minlength="9" formControlName="telefone" class="telefone"
+                  autocomplete="off">
+              </mat-form-field>
+
+              <mat-form-field>
+                  <mat-select placeholder="Como deseja ser retornado?" formControlName="contato">
+                    <mat-option value="whatsapp">por whatsapp</mat-option>
+                    <mat-option value="ligação">por ligação</mat-option>
+                    <mat-option value="email">por email</mat-option>
+                    <mat-option value="whatsapp">indiferente</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+            <mat-form-field>
+              <textarea class="textarea" matInput placeholder="descreva aqui sobre o que precisa" formControlName="mensagem"></textarea>
+            </mat-form-field>
+
+            <div class="button-row">
+                <button mat-raised-button 
+                  class="btn-block" 
+                  color="primary" 
+                  [disabled]="!formOrcamento.valid"
+                  >Enviar &nbsp;<mat-icon>send</mat-icon></button>
+            </div>
+
+      </form>
+
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+</div>

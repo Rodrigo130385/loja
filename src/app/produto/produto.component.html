@@ -1,0 +1,133 @@
+<div class="container-fluid">
+  
+    <div class="text-right">
+        <h1>Preços especiais para diferentes quantidades!</h1>
+        <hr>
+      </div>
+
+  <div class="row">
+
+    <div class="col-md-8">
+      <div class="container-fluid">
+        
+        <div class="row">
+
+          <div class="col-md-9">
+            <mat-card class="example-card">
+              <mat-card-content>
+                <div class="container div-img-gd">
+                  <a routerLink="/produto/{{ produto['produto_ID'] }}">
+                    <img mat-card-image src="https://www.iameiestampas.com.br/loja/client/LV_0005/imagens/{{ imagemNome }}" alt="{{ produto['produto_nome'] }}">
+                  </a>
+                </div>
+              </mat-card-content>
+              <hr>
+              <br>
+              <mat-card-actions>
+                <div class="button-row">
+                  <a mat-raised-button class="btn-block" color="primary" routerLink="/orcamento/{{ produto['produto_ID'] }}">Orçamento
+                    <mat-icon>receipt</mat-icon>
+                  </a>
+                </div>
+              </mat-card-actions>
+
+            </mat-card>
+          </div>
+
+          <div class="col-md-3">
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-2" *ngFor="let imagem of imagens">
+                  <mat-list>
+                    <mat-list-item>
+                      <a (click)="showThisImg(imagem['imagem_nome'])">
+                        <img matListAvatar src="https://www.iameiestampas.com.br/loja/client/LV_0005/imagens_mini/{{ imagem['imagem_nome'] }}" alt="...">
+                      </a>
+                    </mat-list-item>
+                  </mat-list>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <mat-card class="example-card">
+        <br>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>
+            <h1>{{ produto['produto_nome'] }}</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h3>{{ produto['produto_preco_2'] | currency:'BRL':true:'1.2-2' }}</h3>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <br>
+
+
+
+        <div *ngFor="let variantes of arrVariantes; index as i">
+
+
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{ variantes['variante_desc'] }}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <mat-list>
+                <mat-list-item *ngFor="let variante of variantes['variantes']">
+                  {{ variante }}
+                  <mat-divider></mat-divider>
+                </mat-list-item>
+
+              </mat-list>
+
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </div>
+
+        <br>
+        <div class="button-row">
+          <a mat-raised-button class="btn-block" color="primary" routerLink="/orcamento/{{ produto['produto_ID'] }}">Orçamento
+            <mat-icon>receipt</mat-icon>
+          </a>
+        </div>
+
+        <br>
+        <br>
+        <mat-card-actions>
+          <mat-card-content>
+            <div>{{ produto['produto_mkt'] }}</div>
+          </mat-card-content>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+      <div [innerHTML]="produto['produto_desc']"></div>
+    </div>
+  </div>
+
+</div>

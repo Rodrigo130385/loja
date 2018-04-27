@@ -1,1 +1,167 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+.loading-page{
+    width: 100% !important;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5000;
+    background-color: #071a33;
+  }
+  .loader-page {
+    margin-top: 18%;
+    border: 16px solid #ffffff00;
+    border-radius: 50%;
+    border-top: 16px solid #b31010;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+
+  .container-info{
+    width: 100%;
+    background: #071a33;    
+  }
+
+  .container-info .container > *{
+    padding: 15px 0;
+    color: #FFF;
+  }
+
+  .fill-remaining-space {
+    /*This fills the remaining space, by using flexbox.  
+   Every toolbar row uses a flexbox row layout. */
+   flex: 1 1 auto;
+ }
+
+ .search-form, .box-mobi {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-full-width {
+  width: 100%;
+}
+
+.textarea{
+  min-height: 120px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.div-img{
+  width: 100%;
+  max-width: 300px;
+  height: 265px;
+  text-align: center;
+}
+
+.div-img-gd{  
+  padding: 5px;
+  width: 100%;
+  max-width: 330px;
+  text-align: center;
+}
+
+.div-img img, .div-img-gd img{
+  width: 100%;
+}
+
+
+.desc-panel{
+  height: 150px;
+  overflow: hidden;
+}
+
+.sobre-box{
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  -webkit-box-shadow: inset 0px -131px 56px 0px rgba(255,255,255,1);
+  box-shadow: inset 0px -131px 106px 0px rgba(255,255,255,1);
+  border: none;
+}
+
+h1{
+  font-size: 1.3em;
+}
+
+h2{
+  font-size: 1.1em;
+}
+
+.btn-active{
+  background-color: #d1930c;
+  color: #FFFFFF;
+}
+
+.btn-circle{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 75% !important;
+  padding: 10px !important;
+}
+
+.div-links{
+  position: relative;
+  bottom: -120px;
+  height: 3px;
+  background-color: #d1930c;
+  border-color: #d1930c;
+  z-index: -10;
+}
+
+.div-btn{
+  position: relative;
+  bottom: -65px;
+}
+
+.iamei-ico{
+  max-width: 46px;
+}
+
+.text-desc{
+  margin-top: 10px;
+}
+
+@media only screen and ( min-width: 991px){
+  /*desktop*/
+  .show-desktop{
+    /*display: inline;  */
+  }
+  .show-mobi{
+    display: none;  
+  }  
+}
+
+@media only screen and ( max-width: 992px){
+  /*mobi*/
+  .show-desktop{
+    display: none;  
+  }
+}
+

@@ -1,0 +1,13 @@
+.container-home{
+    padding: 2px 15px;
+}
+
+.img-home{
+    border-bottom: 1px solid #000000;
+    max-width: 560px;
+    width: 100%;
+}
+
+.text-home p{
+    font-size: 1.07em;
+}

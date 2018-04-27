@@ -1,0 +1,10 @@
+
+    <form class="search-form" [formGroup]="formBuscar" (ngSubmit)="submit()">
+        <mat-form-field class="form-full-width">
+            <input matInput placeholder="O que você procura?" formControlName="buscar">
+        </mat-form-field>
+
+        <div class="button-row">
+            <button mat-raised-button class="btn-block" color="primary" type="submit" [disabled]="!formBuscar.valid" ><mat-icon>search</mat-icon></button>
+        </div>
+    </form>
