@@ -26,23 +26,31 @@ import { Component, OnInit } from '@angular/core';
     }
   
     getProdutos() {
+
+      if( localStorage.getItem('produtos') != null ){
+        this.produtos = JSON.parse(localStorage.getItem('produtos'));
+      }else{
   
-      this.inscricao = this.request.get(
-        "produto"
-      ).subscribe(
-        data => {
-          this.data = data;
-          this.responseProdutos(this.data);
-        },
-        error => {
-          alert("Erro");
-        }
+        this.inscricao = this.request.get(
+          "produto"
+        ).subscribe(
+          data => {
+            this.data = data;
+            this.responseProdutos(this.data);
+          },
+          error => {
+            alert("Erro");
+          }
         );
+      }
     }
   
     responseProdutos(data){
       if( data['status'] === 200 ){
         this.produtos = data['resposta'];
+        localStorage.setItem("produtos",JSON.stringify(this.produtos));
+
+        console.log( localStorage.getItem('produtos') );
       }
   
   

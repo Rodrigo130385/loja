@@ -3,8 +3,13 @@
 
   <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-md-3 text-center">
+        <h3>Orçamento rápido</h3>
         <img class="img-orcamento" src="/assets/img/camisetas-personalizadas-familia.jpg">
+        <br>
+        <a href="mailto:vendas@iameiestampas.com.br">
+          <mat-icon>mail</mat-icon>
+        </a> vendas@iameiestampas.com.br <br>
     </div>
     <div class="col-md-6">
 
@@ -15,24 +20,29 @@
               autocomplete="off">
           </mat-form-field>
 
-          <mat-form-field>
-              <input matInput type="email" placeholder="email" minlength="3" style="text-transform: lowercase;" formControlName="email"
-                autocomplete="off">
-            </mat-form-field>
-
             <mat-form-field>
-                <input matInput type="text" placeholder="numero de telefone" minlength="9" formControlName="telefone" class="telefone"
-                  autocomplete="off">
+                <mat-select placeholder="Como deseja ser retornado?" formControlName="contato" (change)="tipoRetorno($event)" >
+                  <mat-option value="whatsapp">por whatsapp</mat-option>
+                  <mat-option value="ligação">por ligação</mat-option>
+                  <mat-option value="email">por email</mat-option>
+                  <!--<mat-option value="whatsapp">indiferente</mat-option>-->
+                </mat-select>
               </mat-form-field>
 
-              <mat-form-field>
-                  <mat-select placeholder="Como deseja ser retornado?" formControlName="contato">
-                    <mat-option value="whatsapp">por whatsapp</mat-option>
-                    <mat-option value="ligação">por ligação</mat-option>
-                    <mat-option value="email">por email</mat-option>
-                    <mat-option value="whatsapp">indiferente</mat-option>
-                  </mat-select>
+              <mat-form-field *ngIf="!inputTel">
+                  <input matInput type="email" placeholder="email" minlength="3" style="text-transform: lowercase;" formControlName="email"
+                    autocomplete="off"
+                    [disabled]="inputTel">
                 </mat-form-field>
+
+            <mat-form-field *ngIf="inputTel">
+                <input matInput type="text" placeholder="numero de telefone" minlength="9" formControlName="telefone" class="telefone"
+                  autocomplete="off"
+                  [disabled]="!inputTel"
+                >
+              </mat-form-field>
+
+              
 
             <mat-form-field>
               <textarea class="textarea" matInput placeholder="descreva aqui sobre o que precisa" formControlName="mensagem"></textarea>

@@ -17,6 +17,7 @@ export class OrcamentoComponent implements OnInit, AfterViewChecked, OnDestroy {
   formOrcamento: FormGroup;
   inscricao: Subscription;
   subs: Subscription;
+  inputTel: boolean = false;
 
   assunto: any;
 
@@ -52,7 +53,7 @@ export class OrcamentoComponent implements OnInit, AfterViewChecked, OnDestroy {
     this.formOrcamento = this.formBuilder.group({
       nome: ['', [Validators.required] ],
       email: ['', [Validators.required] ],
-      telefone: [''],
+      telefone: ['', [Validators.required] ],
       contato: ['', [Validators.required] ],
       mensagem: ['', [Validators.required] ],
       assunto: ['']
@@ -97,6 +98,17 @@ export class OrcamentoComponent implements OnInit, AfterViewChecked, OnDestroy {
       mensagem = 'Ops! Não foi possível enviar seu orçamento!'
     }
     this.router.navigate(['/concluido'], {queryParams:{msg: encodeURI(mensagem) }} );
+  }
+
+  tipoRetorno(event){
+    this.inputTel = ( event.value === 'whatsapp' || event.value === 'ligação' );
+    if( this.inputTel ){
+      this.formOrcamento.get('telefone').enable();
+      this.formOrcamento.get('email').disable();
+    }else{
+      this.formOrcamento.get('email').enable();
+      this.formOrcamento.get('telefone').disable();
+    }
   }
 
 }
